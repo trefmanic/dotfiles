@@ -57,9 +57,9 @@
                           autopair
                           haml-mode
                           markdown-mode
-			  markdown-mode+
+			  poly-markdown
+			  poly-R
                           php-mode
-			  jekyll-modes
 			  rvm
 			  zenburn-theme
 			  2048-game
@@ -120,8 +120,8 @@
       visible-bell t)
 (show-paren-mode t)
 
-(add-to-list 'auto-mode-alist '("\\.md$" . jekyll-markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.html" . jekyll-html-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.html" . html-mode))
 
 ;; Собственные функции
 
