@@ -1,9 +1,13 @@
 #!/bin/zsh
 
 #TODO: Уборка
-## Алиасы пользователя
-######################
 
+## --------------------------------
+## Алиасы для разворачивания dotfiles:
+alias dotfiles='/usr/bin/git --git-dir=/home/trefmanic/.dotfiles/ --work-tree=/home/trefmanic'
+## --------------------------------
+
+## Алиасы пользователя
 # Улучшаем поведение ls
 alias ls='ls -BhFC --group-directories-first --color'
 
@@ -37,4 +41,5 @@ alias "play"='mpv --hwdec'
 alias su='sudo -E -s'
 alias please='sudo -E'
 
-alias "mplayer"='mpv --hwdec'alias dotfiles='/usr/bin/git --git-dir=/home/trefmanic/.dotfiles/ --work-tree=/home/trefmanic'
+alias "mplayer"='mpv --hwdec'
+
