@@ -1,0 +1,41 @@
+#!/bin/zsh
+# Пользовательские настройки
+
+# Дополнение с учётом регистра
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="false"
+
+# Исправление неверно введённых команд
+ENABLE_CORRECTION="false"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+export DEBEMAIL=trefmanic@gmail.com
+export TERM=xterm-256color
+export MANPAGER="sh -c 'col -b | bat -l man -p'"
+
+# Локаль
+export LANG=ru_RU.UTF-8
+
+# Редакторы для локальных и удалённых сеансов
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+else
+  export EDITOR='emacs'
+fi
+
+# Command not found hook
+if [[ -s '/etc/zsh_command_not_found' ]]; then
+    source '/etc/zsh_command_not_found'
+fi
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+export PYTHONWARNINGS=ignore:DEPRECATION
+export GPG_TTY=$(tty)

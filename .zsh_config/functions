@@ -1,0 +1,231 @@
+#!/bin/zsh
+
+# TODO: Уборка
+# Перегрузка cd для активации venv
+# https://stackoverflow.com/questions/45216663/
+# how-to-automatically-activate-virtualenvs-when-cding-into-a-directory/56309561#56309561
+function cd() {
+  builtin cd "$@"
+
+  ## Default path to virtualenv in your projects
+  DEFAULT_ENV_PATH="./.venv"
+
+  ## If env folder is found then activate the vitualenv
+  function activate_venv() {
+    if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]] ; then
+      source "${DEFAULT_ENV_PATH}/bin/activate"
+      # echo "Activating ${VIRTUAL_ENV}"
+    fi
+  }
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    activate_venv
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate then run a new env folder check
+      parentdir="$(dirname ${VIRTUAL_ENV})"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        # echo "Deactivating ${VIRTUAL_ENV}"
+        deactivate
+        activate_venv
+      fi
+  fi
+}
+
+# Автоматизация проверки бэкапов
+backup-check() {
+    if [ -n "$1" ]
+    then
+    ssh trefmanic@"$1" tail -n2 "/var/log/pgbackup/*"
+    else
+    # Не указан адрес сервера
+    echo "Usage: backup-check <host>"
+    fi
+}
+
+
+# Кодировать в webm
+webencode() {
+    if [ -n "$1" ]
+    then
+    filename=${1}
+    ffmpeg -i "$filename" -c:v libvpx-vp9 -crf 26 -b:v 0 -b:a 128k -c:a libopus "${filename:r}.webm"
+    else
+    echo "Usage: webencode <file>"
+    fi
+}
+
+# Кодировать в mp4 (совместимо с Telegram)
+telecode() {
+    if [ -n "$1" ]
+    then
+    filename=${1}
+    ffmpeg -i "$filename" -acodec libfaac -b:a 128k -vcodec mpeg4 -b:v 1200k -flags +aic+mv4 "${filename:r}_tg.mp4"
+    else
+    echo "Usage: telecode <file>"
+    fi
+}
+
+cloud-send() {
+    if [ -n "$1" ]
+    then
+    curl -F "file=@"$1 https://0x0.st
+    else
+    # Не предоставлено имя файла
+    echo "Usage: cloud-send <filename>"
+    fi
+}
+
+# Сокращение ссылок
+shorturl() {
+    if [ -n "$1" ]
+    then
+     curl -F'shorten='"$1" https://0x0.st
+    else
+    # Не предоставлена ссылка
+    echo "Usage: shorturl <URL>"
+    fi
+}
+
+# Дата и время
+insert-datestamp() { LBUFFER+=${(%):-'%D{%Y-%m-%d-%H%M}'}; }
+zle -N insert-datestamp
+bindkey '^Ed' insert-datestamp
+
+_myip_ip4()
+{
+    print -n "$fg[blue]IPv4:$fg[default] "
+    curl -4 --no-keepalive \
+     --silent \
+     --connect-timeout "3" \
+     --get "${1}" 2>/dev/null \
+    || echo -e "$fg[red]Unable to determine$fg[default]" 1>&2
+}
+
+_myip_ip6()
+{
+    print -n "$fg[blue]IPv6:$fg[default] "
+    curl -6 --no-keepalive \
+     --silent \
+     --connect-timeout "3" \
+     --get "${1}" 2>/dev/null \
+    || echo -e "$fg[red]Unable to determine$fg[default]" 1>&2
+}
+
+myip()
+{
+    local _myip_url='http://ip.ctrl-q.ru'
+    case "${1}" in
+    4|v4|-4|-v4) _myip_ip4 "${_myip_url}" ;;
+    6|v6|-6|-v6) _myip_ip6 "${_myip_url}" ;;
+    help)
+        echo 'Usage:'
+        echo '   myip <options>'
+        echo ''
+        echo 'Options:'
+        echo '   4|v4|-4|-v4 - resolve only IPv4 address'
+        echo '   6|v6|-6|-v6 - resolve only IPv6 address'
+        echo '   help - show help'
+        ;;
+    *)
+        _myip_ip4 "${_myip_url}"
+        _myip_ip6 "${_myip_url}"
+        ;;
+    esac
+
+    return 0
+}
+
+# Universal extractor
+ex()
+{
+    if [ -r "${1}" ]; then
+        case "${1}" in
+            *.tgz  | *.tar.gz)  tar xzvf "${1}" ;;
+            *.tbz2 | *.tar.bz2) tar xjvf "${1}" ;;
+            *.txz  | *.tar.xz)  tar xJvf "${1}" ;;
+            *.gz)  gunzip "${1}"     ;;
+            *.bz2) bunzip2 "${1}"    ;;
+            *.xz)  unxz "${1}"       ;;
+            *.Z)   uncompress "${1}" ;;
+            *.7z)  7z x "${1}"       ;;
+            *.zip) unzip "${1}"      ;;
+            *.rar) unrar x "${1}"    ;;
+            *.rpm)
+                local __dir="${1%%.rpm}"
+                mkdir "${__dir}"
+                cd "${__dir}" || return
+                rpm2cpio "../${1}" | cpio -vid
+                cd - || return
+                unset __dir
+            ;;
+            *.deb)
+                local __dir="${1%%.deb}"
+                mkdir "${__dir}"
+                ar xv "${1}"
+                tar -C "${__dir}" -xvf data.tar.?z*
+                unset __dir
+            ;;
+            *) echo "${1} is not supported" 1>&2 ;;
+        esac
+    else
+        echo "Missing archive" 1>&2
+    fi
+}
+
+
+# Самописные функции
+
+top10mem() {
+# Prints top 10 RAM-eating processes
+
+    # TABLE HEADER {
+    print -l $fg_bold[red]"RAM\t"$fg_bold[green]"PID\t"$fg_bold[white]"COMMAND\t"$fg[default]
+    print -n "\e[0m"
+    print "$fg[white]${(l:42::-:)}$bg[default]"
+    # }
+
+    # array of lines, top 10 processes by RAM consumption
+    # rss - RAM in Kb, pid - Process ID, args - Process command (full)
+    memstat=("${(@f)$(ps -e -orss=,pid=,args= | sort -nr -b -k1 | head -10)}")
+
+    # Prettify each line
+    for stat in $memstat; do
+
+        # Split each line with space as separator
+        columns=(${(ws: :)stat})
+
+        # If higher, then 1 Mb, display in Mb, else in Kb
+        if [[ $columns[1] > 1024 ]]; then
+
+            ((RAM =  $columns[1] / 1024))
+            print -n $fg[red]$RAM" Mb\t"$fg[default]
+
+        else
+            # Print Kb
+            print -n $fg[red]$columns[1]" Kb\t"$fg[default]
+
+        fi
+        # Print PID
+        print -n $fg[green]$columns[2]$fg[default]"\t"
+
+        # Print commandline (without any arguments)
+        print -n $columns[3]
+
+        # Could add more fields in future, this is for compatability
+        print
+    done
+}
+
+haste(){
+
+    result=$(curl -sf --data-binary @${1:--} https://hastebin.com/documents) || {
+        echo "ERROR: failed to post document" >&2
+        exit 1
+    }
+
+    key=$(jq -r .key <<< $result)
+
+    echo "https://hastebin.com/${key}"
+}
