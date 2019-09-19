@@ -16,3 +16,4 @@ dotfiles checkout
 ```
 
 [//]: # (Created README)
+[//]: # (Enabled GPG signing)
