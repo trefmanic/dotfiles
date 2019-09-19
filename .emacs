@@ -141,7 +141,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode rust-mode 2048-game zenburn-theme rvm jekyll-modes php-mode markdown-mode+ markdown-mode haml-mode autopair ac-slime haskell-mode))))
+    (yaml-mode rust-mode 2048-game zenburn-theme rvm php-mode poly-R poly-markdown markdown-mode haml-mode autopair ac-slime haskell-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

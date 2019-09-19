@@ -1,9 +1,8 @@
 # Путь к фреймворку oh-my-zsh
 export ZSH="/home/trefmanic/.oh-my-zsh"
 
-# Включение темы powerlevel9k
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# Включение темы powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
     ansible
@@ -45,7 +44,7 @@ else
     print "$USER_CONF/functions not found"
 fi
 
-# Подключение конфигурации powerlevel9k
+# Подключение конфигурации powerlevel10k
 if [ -f $USER_CONF/zshpower ]; then
     source $USER_CONF/zshpower
 else
