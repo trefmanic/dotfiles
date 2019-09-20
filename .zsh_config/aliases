@@ -10,24 +10,22 @@ alias dotfiles='/usr/bin/git --git-dir=/home/trefmanic/.dotfiles/ --work-tree=/h
 ## Алиасы пользователя
 # Улучшаем поведение ls
 alias ls='ls -BhFC --group-directories-first --color'
-
-# Если забыли пробел...
-alias "cd.."='cd ..'
-alias ".."='cd ..'
-
+alias lh='ls -ldh .?*'
 # Уведомление для долго выполняющихся комманд
 # Использовать так:
 # sleep 10; alert
+# TODO: Перенести в функции
 alias "alert"='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal \
 || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Зачем nano, если есть emacs?
 alias "nano"='emacs'
-
 alias "cat"='bat'
+
 # Погода в терминале
-alias wth='curl "wttr.in/Губкинский?Q2n&lang=ru"'
-alias wthn='curl "wttr.in/Губкинский?Q0n&lang=ru"'
+CITY='Губкинский'
+alias wth='curl "wttr.in/$CITY?Q2n&lang=ru"'
+alias wthn='curl "wttr.in/$CITY?Q0n&lang=ru"'
 
 # Правка конфигов zsh
 alias "edzsh"='emacs ~/.zshrc'
@@ -39,6 +37,7 @@ alias activate='source .venv/bin/activate'
 alias -s txt=st
 alias -s mp4='mpv --hwdec'
 alias "play"='mpv --hwdec'
+
 alias su='sudo -E -s'
 alias please='sudo -E'
 
