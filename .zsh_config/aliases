@@ -18,7 +18,8 @@ alias ".."='cd ..'
 # Уведомление для долго выполняющихся комманд
 # Использовать так:
 # sleep 10; alert
-alias "alert"='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias "alert"='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal \
+|| echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Зачем nano, если есть emacs?
 alias "nano"='emacs'

@@ -55,4 +55,3 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt append_history share_history histignorealldups
-
