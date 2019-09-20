@@ -1,4 +1,3 @@
-# Путь к фреймворку oh-my-zsh
 export ZSH="/home/trefmanic/.oh-my-zsh"
 
 # Включение темы powerlevel10k
