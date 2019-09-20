@@ -1,0 +1,18 @@
+[user]
+	name = trefmanic
+	email = trefmanic@gmail.com
+	signingkey = E3972605CBC1F029
+[core]
+	editor = emacs
+[push]
+	default = simple
+[cola]
+	fontdiff = Terminus,11,-1,5,50,0,0,0,0,0
+	blameviewer = git gui blame
+[gui]
+	editor = emacs
+	historybrowser = gitk
+[diff]
+	tool = xxdiff
+[gpg]
+	program = gpg2
