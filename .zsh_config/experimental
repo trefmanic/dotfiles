@@ -1,0 +1,77 @@
+#!/bin/zsh
+# ^ Force syntax highlight
+
+# Обновление приглашения для рабочих часов и
+# текущей композиции
+
+# Таймаут обновления (секунды)
+TMOUT=1
+TRAPALRM() {
+    # Без этого хака некорректно работает прокрутка истории
+    # клавишами стрелок
+    if [[ $WIDGET != *"complete"* && $WIDGET != *"beginning-search" ]]; then;
+       zle reset-prompt
+    fi
+}
+
+
+zsh_current_track(){
+
+# Цвет текста
+local color='%F{black}'
+
+# Конструктор параметров dbus-send
+local options="--print-reply --session"
+local dest="org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2"
+local method="org.freedesktop.DBus.Properties.Get"
+local pstring="string:'org.mpris.MediaPlayer2.Player'"
+
+# Проверка на наличие процесса rhytmbox
+# Возвращает 1, если процесс запущен
+    
+local isRunning=$(ps -ef | grep "rhythmbox" | grep -v "grep" | wc -l)
+
+if (( $isRunning !=0 )); then # Rhythmbox запущен
+
+    # Проверка на наличие сеанса SSH
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then # Это сеанс ssh
+
+	# выводим символ \u23f9 "⏹" и выходим
+	echo -n "%{$color%}\u23f8%{%f%}"
+
+    else  # Сеанс ssh не обнаружен
+
+	# Проверяем состояние поспроизведения
+	local isPlaying=$(eval dbus-send $options --dest="$dest" $method $pstring string:'PlaybackStatus' | grep "Playing\|Paused" -o $1)
+	    
+	if [[ $isPlaying = "Playing" ]]; then  # Что-то воспроизводится
+	    
+	   # получам имя текущего трека и выводим его
+	   local name=$(eval dbus-send $options --dest="$dest" $method $pstring string:'Metadata' | grep -A 1 'xesam:title' | grep variant | sed -e 's/^.*string..//g' -e 's/.$//')
+
+	   echo -n "%{$color%}\u23f5 $name%{%f%}" # \u23f5 - "⏵"
+	
+	   else  # Ничего не воспроизводится
+
+	       # выводим символ паузы
+	       echo -n "%{$color%}\u23f8%{%f%}"
+
+	fi
+    fi
+
+else # Rhythmbox не запущен
+    # Выводим символ \u00d7 "×"
+    echo -n "%{$color%}\u00d7%{%f%}"
+fi	
+}
+
+# Модуль отображения текущего трека
+#----------------------------------
+if (( $UID !=0 )) then
+	POWERLEVEL9K_CUSTOM_CURRENT_TRACK="zsh_current_track"
+else
+	POWERLEVEL9K_CUSTOM_CURRENT_TRACK=""
+fi
+#----------------------------------
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( $POWERLEVEL9k_RIGHT_PROMPT_ELEMENTS custom_current_track )
