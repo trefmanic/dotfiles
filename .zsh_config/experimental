@@ -9,6 +9,9 @@ POWERLEVEL9K_EXPERIMENTAL_TIME_REALTIME=true
 
 zsh_current_track(){
 
+  powerlevel9k_prepare_prompts
+  powerlevel9k_preexec
+
 # Цвет текста
 local color='%F{black}'
 
@@ -66,4 +69,4 @@ else
 fi
 #----------------------------------
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( custom_current_track )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=(custom_current_track)

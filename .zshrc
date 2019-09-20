@@ -1,56 +1,55 @@
-export ZSH="/home/trefmanic/.oh-my-zsh"
-
-# Включение темы powerlevel10k
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(
-    ansible
-    sublime
-    ubuntu
-    sudo
-    tmux
-    command-not-found
-    git
-    virtualenv
-    history
-    pass
-)
-
-# Подключение oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# Путь к настройкам пользователя
-export USER_CONF="/home/trefmanic/.zsh_config"
-
-# Подключение настроек пользователя
-if [ -f $USER_CONF/settings ]; then
-    source $USER_CONF/settings
-else
-    print "$ZSHCONF/settings not found"
+#!/bin/zsh
+## Установка zplug
+## --------------------------------
+if [[ ! -d ~/.zplug ]];then
+    git clone https://github.com/zplug/zplug.git ~/.zplug
 fi
 
-# Подключение алиасов
-if [ -f $USER_CONF/aliases ]; then
-    source $USER_CONF/aliases
-else
-    print "$USER_CONF/aliases not found"
+## Инициализация zplug
+## --------------------------------
+source ~/.zplug/init.zsh
+
+## Плагины oh-my-zsh
+## --------------------------------
+zplug "plugins/ansible", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/ubuntu", from:oh-my-zsh
+zplug "plugins/sudo", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/sublime", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "plugins/virtualenv", from:oh-my-zsh
+zplug "plugins/pass", from:oh-my-zsh
+
+## Подключение плагина для истории,
+## нормально работающего с fzf
+## --------------------------------
+zplug "trefmanic/oh-my-zsh", as:plugin, use:"plugins/history"
+
+## Подключение fzf
+## --------------------------------
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+zplug "junegunn/fzf", use:"shell/*.zsh", defer:2
+
+## Подключение темы powerlevel10k и её настройки
+## --------------------------------
+zplug "romkatv/powerlevel10k", use:"powerlevel10k.zsh-theme"
+zplug "$HOME/.zsh_config", from:local, use:zshpower
+
+## Пользовательские настройки, алиасы и функции
+## --------------------------------
+zplug "$HOME/.zsh_config", from:local, use:settings
+zplug "$HOME/.zsh_config", from:local, use:aliases
+zplug "$HOME/.zsh_config", from:local, use:functions
+
+
+## Установка отсутствующих плагинов
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 
-# Подключение функций
-if [ -f $USER_CONF/functions ]; then
-    source $USER_CONF/functions
-else
-    print "$USER_CONF/functions not found"
-fi
-
-# Подключение конфигурации powerlevel10k
-if [ -f $USER_CONF/zshpower ]; then
-    source $USER_CONF/zshpower
-else
-    print "$USER_CONF/zshpower not found"
-fi
-
-# Подключение fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-setopt append_history share_history histignorealldups
+## Загрузка zplug
+zplug load
