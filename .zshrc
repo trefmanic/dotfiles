@@ -1,4 +1,5 @@
 #!/bin/zsh
+
 ## Установка zplug
 ## --------------------------------
 if [[ ! -d ~/.zplug ]];then
@@ -11,15 +12,10 @@ source ~/.zplug/init.zsh
 
 ## Плагины oh-my-zsh
 ## --------------------------------
-zplug "plugins/ansible", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/ubuntu", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/sublime", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/virtualenv", from:oh-my-zsh
-zplug "plugins/pass", from:oh-my-zsh
+OMZ_PLUGINS="{plugins/ansible,plugins/git,plugins/ubuntu,plugins/sudo,\
+plugins/tmux,plugins/sublime,plugins/command-not-found,\
+plugins/virtualenv,plugins/pass}"
+zplug $OMZ_PLUGINS, from:oh-my-zsh
 
 ## Подключение плагина для истории,
 ## нормально работающего с fzf
@@ -38,10 +34,8 @@ zplug "$HOME/.zsh_config", from:local, use:zshpower
 
 ## Пользовательские настройки, алиасы и функции
 ## --------------------------------
-zplug "$HOME/.zsh_config", from:local, use:settings
-zplug "$HOME/.zsh_config", from:local, use:aliases
-zplug "$HOME/.zsh_config", from:local, use:functions
-
+ZSH_CONFIG="$HOME/.zsh_config"
+zplug "$ZSH_CONFIG", from:local, use:"{settings,aliases,functions}"
 
 ## Установка отсутствующих плагинов
 if ! zplug check --verbose; then
