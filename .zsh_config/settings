@@ -55,3 +55,6 @@ export FZF_CTRL_T_OPTS=$FZF_PREVIEW_OPTIONS
 export FZF_COMPLETION_OPTS=$FZF_PREVIEW_OPTIONS
 
 export FZF_CTRL_R_OPTS='--border --ansi --height=60%'
+
+## Устанавливаем заголовок окна Terminator
+title $USER@$HOST

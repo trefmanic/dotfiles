@@ -11,9 +11,17 @@ function git {
     fi
 }
 
+## Хак для установки заголовка окна
+## Terminator
+function title()
+{
+   echo -en "\e]2;$1\a"
+}
+
 # Перегрузка cd для активации venv
 # https://stackoverflow.com/questions/45216663/
 # how-to-automatically-activate-virtualenvs-when-cding-into-a-directory/56309561#56309561
+
 function cd() {
   builtin cd "$@"
 
