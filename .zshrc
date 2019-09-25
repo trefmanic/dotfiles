@@ -9,17 +9,15 @@ fi
 ## --------------------------------
 source ~/.zplug/init.zsh
 
+## Отслеживание скорости загрузки
+# zmodload zsh/zprof
+
 ## Плагины oh-my-zsh
 ## --------------------------------
-zplug "plugins/ansible", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/ubuntu", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/sublime", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/virtualenv", from:oh-my-zsh
-zplug "plugins/pass", from:oh-my-zsh
+OMZ_PLUGINS=(ansible git ubuntu sudo tmux sublime command-not-found virtualenv)
+for plugin in $OMZ_PLUGINS; do
+    zplug "plugins/$plugin", from:oh-my-zsh
+done
 
 ## Подключение плагина для истории,
 ## нормально работающего с fzf
@@ -33,15 +31,16 @@ zplug "junegunn/fzf", use:"shell/*.zsh", defer:2
 
 ## Подключение темы powerlevel10k и её настройки
 ## --------------------------------
-zplug "romkatv/powerlevel10k", use:"powerlevel10k.zsh-theme"
+zplug "romkatv/powerlevel10k", as:theme
 zplug "$HOME/.zsh_config", from:local, use:zshpower
 
 ## Пользовательские настройки, алиасы и функции
 ## --------------------------------
-zplug "$HOME/.zsh_config", from:local, use:settings
-zplug "$HOME/.zsh_config", from:local, use:aliases
-zplug "$HOME/.zsh_config", from:local, use:functions
-
+USER_SETTINGS=(functions aliases settings)
+ZSH_CONFIG_DIR="$HOME/.zsh_config"
+for setting in $USER_SETTINGS; do
+    zplug "$ZSH_CONFIG_DIR", from:local, use:"$setting"
+done
 
 ## Установка отсутствующих плагинов
 if ! zplug check --verbose; then
