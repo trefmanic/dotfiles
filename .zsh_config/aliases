@@ -41,11 +41,11 @@ alias activate='source .venv/bin/activate'
 # Алиасы для расширений
 
 alias -s txt=st
-alias -s mp4='mpv --hwdec'
 alias "play"='mpv --hwdec'
+alias "mplayer"='mpv --hwdec'
 
 alias su='sudo -E -s'
 alias please='sudo -E'
 
-alias "mplayer"='mpv --hwdec'
+
 
