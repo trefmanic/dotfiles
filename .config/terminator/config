@@ -3,14 +3,14 @@
   handle_size = 0
   inactive_color_offset = 0.900900900901
   tab_position = hidden
-  title_font = "Terminess Powerline 11"
+  title_font = Terminess Powerline 11
   title_use_system_font = False
 [keybindings]
 [layouts]
   [[default]]
     [[[child1]]]
       parent = window0
-      profile = default
+      profile = zenburn
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -23,10 +23,24 @@
     background_darkness = 0.9
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = "Terminess Powerline 11"
+    font = Terminess Powerline 11
     foreground_color = "#dcdccc"
     icon_bell = False
-    palette = "#3f3f3f:#d7afaf:#7f9f7f:#ffd7af:#dfaf8f:#d78787:#06989a:#afaf87:#3f3f3f:#d7afaf:#7f9f7f:#ffd7af:#dfaf8f:#d78787:#06989a:#afaf87"
+    palette = "#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87:#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87"
+    scrollback_lines = 5000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+    visible_bell = True
+  [[zenburn]]
+    background_color = "#3f3f3f"
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Terminess Powerline 11
+    foreground_color = "#dcdccc"
+    icon_bell = False
+    palette = "#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87:#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87"
     scrollback_lines = 5000
     scrollbar_position = hidden
     show_titlebar = False
