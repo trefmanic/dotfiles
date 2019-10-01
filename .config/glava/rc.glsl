@@ -1,27 +1,12 @@
-
-/* The module to use. A module is a set of shaders used to produce
-   the visualizer. The structure for a module is the following:
-   
-   module_name [directory]
-       1.frag [file: fragment shader],
-       2.frag [file: fragment shader],
-       ...
-       
-   Shaders are loaded in numerical order, starting at '1.frag',
-   continuing indefinitely. The results of each shader (except
-   for the final pass) is given to the next shader in the list
-   as a 2D sampler.
-   
-   See documentation for more details. */
 #request mod bars
 
 /* Window hints */
-#request setfloating  true
+#request setfloating  false
 #request setdecorated false
 #request setfocused   false
 #request setmaximized false
 
-#request setgeometry 0 0 1920 1080
+/* #request setgeometry 0 0 1920 1080 */
 /* Set window background opacity mode. Possible values are:
    
    "native" - True transparency provided by the compositor. Can
@@ -35,7 +20,7 @@
               Has very little performance impact.
     
    "none"   - Disable window opacity completely. */
-#request setopacity "native"
+#request setopacity "none"
 
 /* Whether to average and mirror left and right audio input channels.
    This may cause some modules to only render a single channel. */
@@ -52,7 +37,7 @@
 
 /* Window background color (RGBA format).
    Does not work with `setopacity "xroot"` */
-#request setbg 00000000
+#request setbg 3F3F3FFF
 
 /* (X11 only) EWMH Window type. Possible values are:
    
@@ -68,7 +53,7 @@
    will do nothing, but you can use "!+" and "!-" to stack on top
    or below other windows.
 */
-#request setxwintype "desktop"
+#request setxwintype "normal"
 
 /* (X11 only) EWMH Window state atoms (multiple can be specified).
    Possible values are:
@@ -103,10 +88,9 @@
    When the "pulseaudio" backend is set, this can be a number or
    a name of an audio sink or device to record from. Set to "auto"
    to use the default output device.
-   
    When the "fifo" backend is set, "auto" is interpreted as
    "/tmp/mpd.fifo". Otherwise, a valid path should be provided. */
-#request setsource "auto"
+#request setsource "/tmp/mpd.fifo"
 
 /* Buffer swap interval (vsync), set to '0' to prevent
    waiting for refresh, '1' (or more) to wait for the specified
@@ -148,7 +132,7 @@
    by pulseaudio, and require transformations to be re-applied
    (thus being a good measure of how much work your CPU has to
    perform over time) */
-#request setprintframes true
+#request setprintframes false
 
 /* PulseAudio sample buffer size. Lower values result in more
    frequent audio updates (also depends on sampling rate), but
