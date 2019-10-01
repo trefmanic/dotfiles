@@ -3,7 +3,7 @@
 
 * Клонировать репозиторий:
 ```
-git clone --bare git@github.com:trefmanic/dotfiles.git $HOME/.dotfiles
+git clone --bare https://github.com/trefmanic/dotfiles.git $HOME/.dotfiles
 ```
 
 * Установить алиас в текущем шелле:
