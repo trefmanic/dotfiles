@@ -147,5 +147,5 @@ bar {
         status_command i3status
 }
 # Colors example
-# class             border	backgr	       text      indicator	child_border	
-client.focused      #3f3f3f 	#3f3f3f       #ffd7af 	 #2e9ef4   	#3f3f3f
+# class             border	backgr	      text      indicator	child_border	
+client.focused      #3f3f3f 	#3f3f3f       #06989a 	 #2e9ef4   	#3f3f3f
