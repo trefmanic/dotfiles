@@ -55,7 +55,7 @@ ncmpcpp_directory = ~/.ncmpcpp
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
-#visualizer_in_stereo = yes
+visualizer_in_stereo = yes
 #
 ##
 ## Note: Below parameter defines how often ncmpcpp has to "synchronize"
@@ -68,9 +68,9 @@ ncmpcpp_directory = ~/.ncmpcpp
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = spectrum
+visualizer_type = wave_filled
 #
-visualizer_look = "❤❤"
+visualizer_look = "▪▪"
 # zenburn theme
 visualizer_color = yellow, red, magenta, blue, cyan
 #
