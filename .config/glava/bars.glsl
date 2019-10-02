@@ -9,7 +9,7 @@
 /* Outline width (in pixels, set to 0 to disable outline drawing) */
 #define BAR_OUTLINE_WIDTH 0
 /* Amplify magnitude of the results each bar displays */
-#define AMPLIFY 333
+#define AMPLIFY 666
 /* Whether the current settings use the alpha channel;
    enabling this is required for alpha to function
    correctly on X11 with `"native"` transparency */
@@ -17,7 +17,7 @@
 /* How quickly the gradient transitions, in pixels */
 #define GRADIENT 80
 /* Bar color. By default this provides a blue-white gradient. */
-#define COLOR @fg:mix(#f0544C, #FCE94, clamp(d / GRADIENT, 0, 1))
+#define COLOR @fg:mix(#7f9f7f,#06989a, clamp(d / GRADIENT, 0, 1))
 /* Outline color. By default this provides a 'glint' outline based on the bar color */
 #define BAR_OUTLINE @bg:vec4(COLOR.rgb * 1.5, COLOR.a)
 /* Direction that the bars are facing, 0 for inward, 1 for outward */

@@ -50,8 +50,10 @@ export BINARY_FILE='\033[01;32m'$(figlet binary)'\033[00m'
 FZF_PREVIEW_OPTIONS='--border --ansi --height=60 --preview="[[ $(file --mime {}) =~ binary ]] && echo $BINARY_FILE || bat --style=numbers --color=always {}" --preview-window=right:50%:wrap'
 
 export FZF_CTRL_T_OPTS=$FZF_PREVIEW_OPTIONS
-export FZF_COMPLETION_OPTS=$FZF_PREVIEW_OPTIONS
+
 export FZF_CTRL_R_OPTS='--border --ansi --height=60%'
+
+export FZF_COMPLETION_OPTS=$FZF_CTRL_R_OPTS
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
