@@ -11,10 +11,12 @@ function git {
     fi
 }
 
+function now-playing(){
+    notify-send --urgency=low -i sonata "$(mpc -f '%artist% - %title%'|head -1)"
+}
 ## Хак для установки заголовка окна
 ## Terminator
-function title()
-{
+function title(){
    echo -en "\e]2;$1\a"
 }
 
