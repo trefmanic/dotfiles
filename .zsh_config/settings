@@ -60,5 +60,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add .local/bin
 export PATH="$PATH:$HOME/.local/bin"
+
+export HASTE_URL="haste.trefmanic.me"
 ## Устанавливаем заголовок окна Terminator
 title $USER@$HOST

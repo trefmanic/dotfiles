@@ -229,13 +229,18 @@ top10mem() {
 }
 
 haste(){
-    URL="haste.trefmanic.me"
-    result=$(curl -sf --data-binary @${1:--} https://$URL/documents) || {
-        echo "ERROR: failed to post document" >&2
-        exit 1
-    }
+    if [ -n "$HASTE_URL" ]; then
 
-    key=$(jq -r .key <<< $result)
+        URL="haste.trefmanic.me"
+        result=$(curl -sf --data-binary @${1:--} https://$URL/documents) || {
+            echo "ERROR: failed to post document" >&2
+            exit 1
+        }
 
-    echo "https://$URL/${key}"
+        key=$(jq -r .key <<< $result)
+
+        echo "https://$URL/${key}"
+    else
+        echo "haste(): no URL provided"
+    fi
 }
