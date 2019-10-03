@@ -11,10 +11,12 @@ function git {
     fi
 }
 
+function now-playing(){
+    notify-send --urgency=low -i sonata "$(mpc -f '%artist% - %title%'|head -1)"
+}
 ## Хак для установки заголовка окна
 ## Terminator
-function title()
-{
+function title(){
    echo -en "\e]2;$1\a"
 }
 
@@ -227,13 +229,18 @@ top10mem() {
 }
 
 haste(){
+    if [ -n "$HASTE_URL" ]; then
 
-    result=$(curl -sf --data-binary @${1:--} https://hastebin.com/documents) || {
-        echo "ERROR: failed to post document" >&2
-        exit 1
-    }
+        URL="haste.trefmanic.me"
+        result=$(curl -sf --data-binary @${1:--} https://$URL/documents) || {
+            echo "ERROR: failed to post document" >&2
+            exit 1
+        }
 
-    key=$(jq -r .key <<< $result)
+        key=$(jq -r .key <<< $result)
 
-    echo "https://hastebin.com/${key}"
+        echo "https://$URL/${key}"
+    else
+        echo "haste(): no URL provided"
+    fi
 }
