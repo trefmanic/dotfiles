@@ -229,13 +229,13 @@ top10mem() {
 }
 
 haste(){
-
-    result=$(curl -sf --data-binary @${1:--} https://hastebin.com/documents) || {
+    URL="haste.trefmanic.me"
+    result=$(curl -sf --data-binary @${1:--} https://$URL/documents) || {
         echo "ERROR: failed to post document" >&2
         exit 1
     }
 
     key=$(jq -r .key <<< $result)
 
-    echo "https://hastebin.com/${key}"
+    echo "https://$URL/${key}"
 }
