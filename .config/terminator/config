@@ -39,7 +39,7 @@
     font = Terminess Powerline 11
     foreground_color = "#dcdccc"
     icon_bell = False
-    palette = "#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87:#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87"
+    palette = "#3f3f3f:#d78787:#7f9f7f:#ffd7af:#dcdccc:#d7afaf:#06989a:#afaf87:#3f3f3f:#d78787:#7f9f7f:#ffd7af:#dcdccc:#d7afaf:#06989a:#afaf87"
     scrollback_lines = 5000
     scrollbar_position = hidden
     show_titlebar = False
