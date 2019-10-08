@@ -29,10 +29,12 @@ zplug "trefmanic/oh-my-zsh", as:plugin, use:"plugins/history"
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
 zplug "junegunn/fzf", use:"shell/*.zsh", defer:2
 
-## Подключение темы powerlevel10k и её настройки
-## --------------------------------
-zplug "romkatv/powerlevel10k", as:theme
-zplug "$HOME/.zsh_config", from:local, use:zshpower
+## Переезжаем на Spaceship
+## https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+## TODO: Внести новые настройки для Spaceship
+#zplug "$HOME/.zsh_config", from:local, use:zshpower
 
 ## Пользовательские настройки, алиасы и функции
 ## --------------------------------
