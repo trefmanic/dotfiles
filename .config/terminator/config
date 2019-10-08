@@ -33,9 +33,8 @@
     use_system_font = False
     visible_bell = True
   [[zenburn]]
-    background_color = "#3f3f3f"
-    background_darkness = 0.9
-    background_type = transparent
+    background_color = "#444444"
+    background_darkness = 1.0
     cursor_color = "#aaaaaa"
     font = Terminess Powerline 11
     foreground_color = "#dcdccc"
