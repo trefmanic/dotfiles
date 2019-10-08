@@ -2,14 +2,14 @@
 
 # TODO: Уборка
 # Re-defining git command if we are at $HOME
-function git {
-
-    if [[ "$PWD" = "$HOME" ]]; then
-	command git --git-dir=/home/trefmanic/.dotfiles/ --work-tree=/home/trefmanic "$@"
-    else
-	command git "$@"
-    fi
-}
+#function git {
+#
+#    if [[ "$PWD" = "$HOME" ]]; then
+#	command git --git-dir=/home/trefmanic/.dotfiles/ --work-tree=/home/trefmanic "$@"
+#    else
+#	command git "$@"
+#    fi
+#}
 
 function now-playing(){
     notify-send --urgency=low -i sonata "$(mpc -f '%artist% - %title%'|head -1)"
