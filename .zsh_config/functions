@@ -3,7 +3,10 @@
 # TODO: Уборка
 
 function now-playing(){
-    notify-send --urgency=low -i sonata "$(mpc -f '%artist% - %title%'|head -1)"
+    ARTIST="$(mpc current -f '%artist%')"
+    SONG="$(mpc current -f '%title%')"
+    print -P '%F{yellow}♬:%f %F{cyan}$ARTIST%f - %F{yellow}$SONG%f'
+    notify-send --urgency=low -i sonata "$ARTIST - $SONG"
 }
 ## Хак для установки заголовка окна
 ## Terminator
@@ -25,7 +28,7 @@ function cd() {
   function activate_venv() {
     if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]] ; then
       source "${DEFAULT_ENV_PATH}/bin/activate"
-      echo "Activating ${VIRTUAL_ENV}"
+      #echo "Activating ${VIRTUAL_ENV}"
     fi
   }
 
@@ -37,7 +40,7 @@ function cd() {
     # else deactivate then run a new env folder check
       parentdir="$(dirname ${VIRTUAL_ENV})"
       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-        echo "Deactivating ${VIRTUAL_ENV}"
+        #echo "Deactivating ${VIRTUAL_ENV}"
         deactivate
         activate_venv
       fi
