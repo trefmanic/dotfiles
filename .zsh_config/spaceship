@@ -1,0 +1,36 @@
+#!/bin/zsh
+SPACESHIP_PROMPT_ORDER=(
+    time
+    user
+    exec_time
+    dir
+    git
+    pyenv
+    venv
+    line_sep
+    jobs
+    exit_code
+    host
+    char
+)
+## Общие настройки
+#SPACESHIP_PROMPT_DEFAULT_PREFIX='🞘 '
+#SPACESHIP_PROMPT_DEFAULT_SUFFIX=' 🞘'
+
+## Принимаются переменные
+#SPACESHIP_CHAR_PREFIX=$HOST
+SPACESHIP_CHAR_PREFIX_COLOR='green'
+SPACESHIP_CHAR_SYMBOL='» '
+## Настройки модулей
+
+## SPACESHIP_TIME
+SPACESHIP_TIME_SHOW='true'
+
+## SPACESHIP_HOST
+SPACESHIP_HOST_SHOW='always'
+SPACESHIP_HOST_PREFIX=''
+SPACESHIP_HOST_COLOR='white'
+SPACESHIP_HOST_COLOR_SSH='red'
+
+## SPACESHIP_DIR
+SPACESHIP_DIR_PREFIX='> '

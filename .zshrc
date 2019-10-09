@@ -32,9 +32,8 @@ zplug "junegunn/fzf", use:"shell/*.zsh", defer:2
 ## Переезжаем на Spaceship
 ## https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
-## TODO: Внести новые настройки для Spaceship
-#zplug "$HOME/.zsh_config", from:local, use:zshpower
+# Настройки spaceship
+zplug "$HOME/.zsh_config", from:local, use:spaceship
 
 ## Пользовательские настройки, алиасы и функции
 ## --------------------------------
