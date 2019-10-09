@@ -1,4 +1,13 @@
 #!/bin/zsh
+## Вспомогательные функции
+
+## Окрашивание для префиксов
+function zclr(){
+    message=$1
+    color=$2
+    print -P "%F{$color}$message%f"
+}
+
 SPACESHIP_PROMPT_ORDER=(
     time
     user
@@ -14,33 +23,26 @@ SPACESHIP_PROMPT_ORDER=(
     char
 )
 ## Общие настройки
-#SPACESHIP_PROMPT_DEFAULT_PREFIX='🞘 '
-#SPACESHIP_PROMPT_DEFAULT_SUFFIX=' 🞘'
-
-## Принимаются переменные
-#SPACESHIP_CHAR_PREFIX=$HOST
 SPACESHIP_CHAR_PREFIX_COLOR='green'
 SPACESHIP_CHAR_SYMBOL='» '
-## Настройки модулей
 
+## Настройки модулей
 ## SPACESHIP_TIME
 SPACESHIP_TIME_SHOW='true'
 SPACESHIP_TIME_COLOR='green'
-
 ## SPACESHIP_HOST
 SPACESHIP_HOST_SHOW='always'
 SPACESHIP_HOST_PREFIX=''
 SPACESHIP_HOST_COLOR='white' # Хаки (цвет)
 SPACESHIP_HOST_COLOR_SSH='red'
-
 ## SPACESHIP_DIR
-SPACESHIP_DIR_PREFIX='> '
+SPACESHIP_DIR_PREFIX=$(zclr '> ' yellow)
 SPACESHIP_DIR_COLOR='yellow'
-
 ## SPACESHIP_VENV
 SPACESHIP_VENV_GENERIC_NAMES='( .venv )'
-SPACESHIP_VENV_PREFIX=$(print -P '%F{cyan}⚯ %f')
+SPACESHIP_VENV_PREFIX=$(zclr '⚯ ' cyan)
 SPACESHIP_VENV_COLOR='cyan'
-
 ## SPACESHIP_EXEC_TIME
-SPACESHIP_EXEC_TIME_PREFIX=$(print -P '%F{yellow}⏱  %f')
+SPACESHIP_EXEC_TIME_PREFIX=$(zclr '⏱  ' yellow)
+## SPACESHIP_GIT
+SPACESHIP_GIT_PREFIX=''
