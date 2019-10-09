@@ -3,10 +3,10 @@ SPACESHIP_PROMPT_ORDER=(
     time
     user
     exec_time
-    dir
+    venv
     git
     pyenv
-    venv
+    dir
     line_sep
     jobs
     exit_code
@@ -25,6 +25,7 @@ SPACESHIP_CHAR_SYMBOL='» '
 
 ## SPACESHIP_TIME
 SPACESHIP_TIME_SHOW='true'
+SPACESHIP_TIME_COLOR='green'
 
 ## SPACESHIP_HOST
 SPACESHIP_HOST_SHOW='always'
@@ -34,3 +35,12 @@ SPACESHIP_HOST_COLOR_SSH='red'
 
 ## SPACESHIP_DIR
 SPACESHIP_DIR_PREFIX='> '
+SPACESHIP_DIR_COLOR='yellow'
+
+## SPACESHIP_VENV
+SPACESHIP_VENV_GENERIC_NAMES='( .venv )'
+SPACESHIP_VENV_PREFIX=$(print -P '%F{cyan}⚯ %f')
+SPACESHIP_VENV_COLOR='cyan'
+
+## SPACESHIP_EXEC_TIME
+SPACESHIP_EXEC_TIME_PREFIX=$(print -P '%F{yellow}⏱  %f')
