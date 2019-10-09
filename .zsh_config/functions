@@ -1,15 +1,6 @@
 #!/bin/zsh
 
 # TODO: Уборка
-# Re-defining git command if we are at $HOME
-#function git {
-#
-#    if [[ "$PWD" = "$HOME" ]]; then
-#	command git --git-dir=/home/trefmanic/.dotfiles/ --work-tree=/home/trefmanic "$@"
-#    else
-#	command git "$@"
-#    fi
-#}
 
 function now-playing(){
     notify-send --urgency=low -i sonata "$(mpc -f '%artist% - %title%'|head -1)"
@@ -20,9 +11,9 @@ function title(){
    echo -en "\e]2;$1\a"
 }
 
-# Перегрузка cd для активации venv
-# https://stackoverflow.com/questions/45216663/
-# how-to-automatically-activate-virtualenvs-when-cding-into-a-directory/56309561#56309561
+# # Перегрузка cd для активации venv
+# # https://stackoverflow.com/questions/45216663/
+# # how-to-automatically-activate-virtualenvs-when-cding-into-a-directory/56309561#56309561
 
 function cd() {
   builtin cd "$@"
@@ -34,7 +25,7 @@ function cd() {
   function activate_venv() {
     if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]] ; then
       source "${DEFAULT_ENV_PATH}/bin/activate"
-      # echo "Activating ${VIRTUAL_ENV}"
+      echo "Activating ${VIRTUAL_ENV}"
     fi
   }
 
@@ -46,7 +37,7 @@ function cd() {
     # else deactivate then run a new env folder check
       parentdir="$(dirname ${VIRTUAL_ENV})"
       if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-        # echo "Deactivating ${VIRTUAL_ENV}"
+        echo "Deactivating ${VIRTUAL_ENV}"
         deactivate
         activate_venv
       fi
