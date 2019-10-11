@@ -34,8 +34,11 @@ fi
 export DEBEMAIL=trefmanic@gmail.com
 export MANPAGER="sh -c 'col -b | bat -l man -p'"
 ## Центрирование вывода на полном экране
-## TODO: Исправить отображение man-страниц
 export LESSOPEN="|- lesspage %s"
+## Должно соответствовать параметру WIDTH
+## заданному в .local/bin/lesspage
+export MANWIDTH="100"
+
 # Редакторы для локальных и удалённых сеансов
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
