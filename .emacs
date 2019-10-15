@@ -81,6 +81,9 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
+;; Поддержка мыши
+(xterm-mouse-mode 1)
+
 ;; Отключение экрана первоначальной настройки
 (setq inhibit-splash-screen t
       initial-scratch-message nil
@@ -152,7 +155,7 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
-(global-set-key (kbd "C-f") 'search-forward); Переопределяет Ctrl-f
+(global-set-key (kbd "C-f") 'isearch-forward); Переопределяет Ctrl-f
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
