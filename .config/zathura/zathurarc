@@ -7,14 +7,14 @@ set selection-clipboard clipboard
 
 # Zenburn
 set recolor true
-set default-bg "#3F3F3F"
+set default-bg "#444444"
 set default-fg "#dcdccc"
 set inputbar-bg "#60B38A"
 set inputbar-fg "#dcdccc"
-set statusbar-bg "#3F3F3F"
+set statusbar-bg "#444444"
 set statusbar-fg "#60B38A"
 set recolor-darkcolor "#DCDCCC"
-set recolor-lightcolor "#3F3F3F"
+set recolor-lightcolor "#444444"
 set highlight-color "#FCE94F"
 set highlight-active-color "#06989A"
 set highlight-transparency 0.2
