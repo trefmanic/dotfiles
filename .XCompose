@@ -1,0 +1,9 @@
+include "%L"
+<Multi_key> <P> <equal>          	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <p> <equal>          	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <equal> <P>          	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <equal> <p>          	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <Cyrillic_ZE> <equal>	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <Cyrillic_ze> <equal>	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <equal> <Cyrillic_ZE>	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <equal> <Cyrillic_ze>	: "₽"   U20bd # ROUBLE SIGN
