@@ -64,8 +64,8 @@
 			  zenburn-theme
 			  2048-game
 			  rust-mode
-			  yaml-mode)
-  
+			  yaml-mode
+			  ox-jekyll-md)
 
   "Default packages")
 
@@ -130,6 +130,11 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.html" . html-mode))
 
+;; Настройки org-mode
+(with-eval-after-load 'org
+(setq org-default-notes-file (expand-file-name "notes.org"))
+(setq org-log-done 'time))
+
 ;; Собственные функции
 
 ;; Вставить пояснение для интерпретатора Python
@@ -139,6 +144,14 @@
 		(insert "#!/usr/bin/python\n"))
 (global-set-key (kbd "C-x !") 'insert-shabang-python) ; Ctrl-x !
 
+;; Глобальные комбинации клавиш
+
+;; Комбинации для org-mode
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
+
 (global-set-key (kbd "C-f") 'search-forward); Переопределяет Ctrl-f
 
 (custom-set-variables
@@ -146,9 +159,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-export-backends (quote (ascii html icalendar man md odt)))
  '(package-selected-packages
    (quote
-    (yaml-mode rust-mode 2048-game zenburn-theme rvm php-mode poly-R poly-markdown markdown-mode haml-mode autopair ac-slime haskell-mode))))
+    (ox-jekyll-md yaml-mode rust-mode 2048-game zenburn-theme rvm php-mode poly-R poly-markdown markdown-mode haml-mode autopair ac-slime haskell-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
