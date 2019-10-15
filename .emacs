@@ -112,6 +112,13 @@
 ;; Настройки внешнего вида
 (load-theme 'zenburn t)
 
+;; Перекраска фона zenburn
+(with-eval-after-load "zenburn-theme"
+  (zenburn-with-color-variables
+    (custom-theme-set-faces
+     'zenburn
+     `(default ((t (:background ,"#444444")))))))
+
 ;; Отступ с левого края
 (set-window-margins nil 2)
 
