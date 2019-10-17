@@ -9,7 +9,7 @@ function zclr(){
 }
 
 SPACESHIP_PROMPT_ORDER=(
-    time
+    host
     user
     exec_time
     venv
@@ -19,24 +19,24 @@ SPACESHIP_PROMPT_ORDER=(
     line_sep
     jobs
     exit_code
-    host
+    time
     char
 )
 ## Общие настройки
-SPACESHIP_CHAR_PREFIX_COLOR='green'
-SPACESHIP_CHAR_SYMBOL='» '
+SPACESHIP_CHAR_SYMBOL=$(zclr '» ' cyan)
 
 ## Настройки модулей
 ## SPACESHIP_TIME
 SPACESHIP_TIME_SHOW='true'
 SPACESHIP_TIME_COLOR='green'
+SPACESHIP_TIME_PREFIX=''
 ## SPACESHIP_HOST
 SPACESHIP_HOST_SHOW='always'
 SPACESHIP_HOST_PREFIX=''
 SPACESHIP_HOST_COLOR='white' # Хаки (цвет)
 SPACESHIP_HOST_COLOR_SSH='red'
 ## SPACESHIP_DIR
-SPACESHIP_DIR_PREFIX=$(zclr '⌂ ' yellow)
+SPACESHIP_DIR_PREFIX=$(zclr '> ' yellow)
 SPACESHIP_DIR_COLOR='yellow'
 ## SPACESHIP_VENV
 SPACESHIP_VENV_GENERIC_NAMES='( .venv )'
