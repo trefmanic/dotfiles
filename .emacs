@@ -147,6 +147,19 @@
 		(insert "#!/usr/bin/python\n"))
 (global-set-key (kbd "C-x !") 'insert-shabang-python) ; Ctrl-x !
 
+;; Вставка из буфера X11
+;; Требуется установленный xsel
+(defun x-paste ()
+  "insert text on X11's clipboard to current buffer."
+  (interactive)
+  (insert-string (shell-command-to-string "xsel -b")))
+
+;; Запуск корневого документа org-mode
+(defun org-launch()
+(interactive)
+(find-file "~/root.org")
+)
+
 ;; Глобальные комбинации клавиш
 
 ;; Комбинации для org-mode
@@ -154,7 +167,13 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "<f5>") 'org-launch)
 
+;; Прочие комбинации
+
+(global-set-key (kbd "C-c y") 'x-paste)
+
+;; TODO: Подумать, нужно ли это
 (global-set-key (kbd "C-f") 'isearch-forward); Переопределяет Ctrl-f
 
 (custom-set-variables
