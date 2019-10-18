@@ -1,13 +1,6 @@
 #!/bin/zsh
 ## Вспомогательные функции
 
-## Окрашивание для префиксов
-function zclr(){
-    message=$1
-    color=$2
-    print -P "%F{$color}$message%f"
-}
-
 SPACESHIP_PROMPT_ORDER=(
     host
     user
@@ -37,14 +30,14 @@ SPACESHIP_HOST_PREFIX=''
 SPACESHIP_HOST_COLOR='white' # Хаки (цвет)
 SPACESHIP_HOST_COLOR_SSH='red'
 ## SPACESHIP_DIR
-SPACESHIP_DIR_PREFIX=$(zclr '> ' yellow)
+SPACESHIP_DIR_PREFIX="%F{yellow}> %f"
 SPACESHIP_DIR_COLOR='yellow'
 ## SPACESHIP_VENV
 SPACESHIP_VENV_GENERIC_NAMES='( .venv )'
-SPACESHIP_VENV_PREFIX=$(zclr 'ω ' cyan)
+SPACESHIP_VENV_PREFIX="%F{cyan}ω "
 SPACESHIP_VENV_COLOR='cyan'
 ## SPACESHIP_EXEC_TIME
-SPACESHIP_EXEC_TIME_PREFIX=$(zclr 'Δt ' magenta)
+SPACESHIP_EXEC_TIME_PREFIX="%F{155}Δt "
 SPACESHIP_EXEC_TIME_COLOR='magenta'
 ## SPACESHIP_GIT
 SPACESHIP_GIT_PREFIX=''
