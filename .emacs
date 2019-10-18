@@ -167,6 +167,7 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c t") 'org-insert-todo-heading)
 (global-set-key (kbd "<f5>") 'org-launch)
 
 ;; Прочие комбинации
