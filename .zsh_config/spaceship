@@ -23,8 +23,9 @@ SPACESHIP_PROMPT_ORDER=(
     char
 )
 ## Общие настройки
-SPACESHIP_CHAR_SYMBOL=$(zclr '» ' cyan)
-
+SPACESHIP_CHAR_SYMBOL='» '
+SPACESHIP_CHAR_COLOR_SUCCESS='cyan'
+SPACESHIP_CHAR_COLOR_FAILURE='red'
 ## Настройки модулей
 ## SPACESHIP_TIME
 SPACESHIP_TIME_SHOW='true'
