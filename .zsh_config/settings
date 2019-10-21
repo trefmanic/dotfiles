@@ -56,5 +56,12 @@ export FZF_CTRL_T_OPTS=$FZF_PREVIEW_OPTIONS
 export FZF_CTRL_R_OPTS='--border --ansi --height=60%'
 export FZF_COMPLETION_OPTS=$FZF_CTRL_R_OPTS
 
+## Поддержка редактирования длинных команд
+## и последовательностей комманд
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
 ## Устанавливаем заголовок окна Terminator
 title $USER@$HOST
