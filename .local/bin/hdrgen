@@ -1,0 +1,51 @@
+#!/bin/bash
+# Generates C00L headers
+# It needs "figlet" and "ANSI Shadow" font
+# Get the font here: https://github.com/xero/figlet-fonts
+
+if [ ! -n "$1" ]
+then
+    echo "Usage: hdrgen <path> [header]"
+    echo "<path> is the path to the file"
+    echo "[header] is optional, if not provided,"
+    echo "basename <path> is used."
+    exit 1
+fi
+
+work_file=$1
+echo "Work file:" $work_file
+
+tmp_file=$(tempfile)
+echo "TMP file:" $tmp_file
+
+if [ -n "$2" ]
+then
+    name=$2
+else
+    name=$(basename "$work_file" | sed 's/\.[^.]*$//')
+fi
+
+echo "Name:" $name
+echo "# ----------------------------------------" > $tmp_file
+echo "# " >> $tmp_file
+echo  $name | figlet -p -f ANSI\ Shadow | sed '$d' | sed -e 's/^/# /g' >> $tmp_file
+echo "# ----------------------------------------" >> $tmp_file
+echo "" >> $tmp_file
+cat "$work_file" >> $tmp_file
+
+head -n 15 $tmp_file
+
+# Do we need to replace the config?
+echo -n "Replace <$work_file>? [Y/n]: "
+read answer
+
+case $answer in
+    n|N )
+	# Cleaning up
+	rm $tmp_file ;;
+    * )
+	# Default: replacing the config
+	mv $tmp_file "$work_file" ;;
+esac
+
+exit 0
