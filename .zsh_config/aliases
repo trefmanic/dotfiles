@@ -41,11 +41,16 @@ alias activate='source .venv/bin/activate'
 # Алиасы для расширений
 
 alias -s txt=st
+
+# Алиас для mpv
 alias "play"='mpv --hwdec'
 alias "mplayer"='mpv --hwdec'
 
+# Алиасы для sudo
 alias su='sudo -E -s'
 alias please='sudo -E'
 
+# Локальный шрифт для figlet
+alias figlet='figlet -d ~/.local/share/figlet/fonts'
 
 

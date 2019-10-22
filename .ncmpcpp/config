@@ -42,7 +42,7 @@ discard_colors_if_item_is_selected = "no"
 ## Основной цвет строки состояния ##
 statusbar_color = "green"
 ## Формат списка композиций ##
-song_columns_list_format = "(2f)[blue]{: }(32)[blue]{t|f:Название}(24)[red]{a:Исполнитель}(40)[green]{b:Альбом}(2f)[green]{: }"
+song_columns_list_format = "(2f)[blue]{: }(40)[blue]{t|f:Название}(2f)[red]{: }(30)[red]{a:Исполнитель}(2f)[green]{: }(30)[green]{b:Альбом}(2f)[green]{: }"
 ## Формат статусной строки ##
 song_status_format = "$(red)%a $(red)> $(green)%b $(blue)$b> $(blue)%t$/b"
 ## Параметры прогресс-бара
