@@ -225,10 +225,9 @@ top10mem() {
 haste(){
     if [ -n "$HASTE_URL" ]; then
 
-        URL="haste.trefmanic.me"
+        URL=$HASTE_URL
         result=$(curl -sf --data-binary @${1:--} https://$URL/documents) || {
             echo "ERROR: failed to post document" >&2
-            exit 1
         }
 
         key=$(jq -r .key <<< $result)
