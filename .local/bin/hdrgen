@@ -8,8 +8,11 @@ figlet_fonts_dir="$HOME/.local/share/figlet/fonts"
 
 if [ ! -n "$1" ]
 then
-    printf "Usage: hdrgen <path> [header]\n<path> is the path to the file\n"
-    printf "[header] is optional, if not provided,\nbasename <path> is used.\n"
+    printf "Usage: hdrgen <path> [header] [comment]\n\n<path> is the path to the file\n"
+    printf "[header] is optional, if not provided, base name without an extension is used.\n"
+    printf "[comment] is a symbol that is used as a beginning of a comment line.\n"
+    printf "if not provided, defaults to '#'. Make sure you escape it properly.\n\n"
+    printf "Example: hdrgen .emacs emacs ';;'\n"
     exit 1
 fi
 
@@ -24,13 +27,20 @@ then
 else
     name=$(basename "$work_file" | sed 's/\.[^.]*$//')
 fi
+# Experimental
+if [ -n "$3" ]
+then
+    hash="$3"
+else
+    hash="#"
+fi
 
 printf "Name: $name\n\n"
 
 # Header
-line="# ----------------------------------------"
-text=$(printf $name | /usr/bin/figlet -d $figlet_fonts_dir -p -f ANSI\ Shadow | sed '$d' | sed -e 's/^/# /g')
-header="$line\n# \n$text\n$line\n"
+line="$hash ----------------------------------------"
+text=$(printf $name | /usr/bin/figlet -d $figlet_fonts_dir -p -f ANSI\ Shadow | sed '$d' | sed -e "s/^/$hash /g")
+header="$line\n""$hash"" \n$text\n$line\n\n"
 
 # Detect shebang, keeping it at the first line if exists
 if [ -z $(head -1 $work_file | grep '#!') ]
