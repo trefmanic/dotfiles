@@ -3,20 +3,20 @@
 # It needs "figlet" and "ANSI Shadow" font
 # Get the font here: https://github.com/xero/figlet-fonts
 
+# Local figlet fonts dir
+figlet_fonts_dir="$HOME/.local/share/figlet/fonts"
+
 if [ ! -n "$1" ]
 then
-    echo "Usage: hdrgen <path> [header]"
-    echo "<path> is the path to the file"
-    echo "[header] is optional, if not provided,"
-    echo "basename <path> is used."
+    printf "Usage: hdrgen <path> [header]\n<path> is the path to the file\n"
+    printf "[header] is optional, if not provided,\nbasename <path> is used.\n"
     exit 1
 fi
 
 work_file=$1
-echo "Work file:" $work_file
-
+printf "\nWork file: $work_file\n"
 tmp_file=$(tempfile)
-echo "TMP file:" $tmp_file
+printf "TMP file: $tmp_file\n"
 
 if [ -n "$2" ]
 then
@@ -25,18 +25,31 @@ else
     name=$(basename "$work_file" | sed 's/\.[^.]*$//')
 fi
 
-echo "Name:" $name
-echo "# ----------------------------------------" > $tmp_file
-echo "# " >> $tmp_file
-echo  $name | figlet -p -f ANSI\ Shadow | sed '$d' | sed -e 's/^/# /g' >> $tmp_file
-echo "# ----------------------------------------" >> $tmp_file
-echo "" >> $tmp_file
-cat "$work_file" >> $tmp_file
+printf "Name: $name\n\n"
+
+# Header
+line="# ----------------------------------------"
+text=$(printf $name | /usr/bin/figlet -d $figlet_fonts_dir -p -f ANSI\ Shadow | sed '$d' | sed -e 's/^/# /g')
+header="$line\n# \n$text\n$line\n"
+
+# Detect shebang, keeping it at the first line if exists
+if [ -z $(head -1 $work_file | grep '#!') ]
+then
+    # If grep returned empty line
+    # there's no #! in the first line
+    printf "$header" > $tmp_file
+    cat "$work_file" >> $tmp_file
+else
+    # There's #! in the first line, preserving it
+    head -1 "$work_file" > $tmp_file
+    printf "$header" >> $tmp_file
+    tail -n +2 "$work_file" >> $tmp_file
+fi
 
 head -n 15 $tmp_file
-
+printf "\n"
 # Do we need to replace the config?
-echo -n "Replace <$work_file>? [Y/n]: "
+printf "Replace <$work_file>? [Y/n]: "
 read answer
 
 case $answer in
