@@ -174,9 +174,6 @@
 
 (global-set-key (kbd "C-c y") 'x-paste)
 
-;; TODO: Подумать, нужно ли это
-(global-set-key (kbd "C-f") 'isearch-forward); Переопределяет Ctrl-f
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
