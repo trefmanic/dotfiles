@@ -47,7 +47,7 @@ alias "play"='mpv --hwdec'
 alias "mplayer"='mpv --hwdec'
 
 # Алиас для ncmpcpp
-alias "music"='ncmpcpp'
+alias music='ncmpcpp'
 # Алиасы для sudo
 alias su='sudo -E -s'
 alias please='sudo -E'
@@ -55,4 +55,6 @@ alias please='sudo -E'
 # Локальный шрифт для figlet
 alias figlet='figlet -d ~/.local/share/figlet/fonts'
 
+# Часы
+alias clock="tty-clock -s -c -C 3 -b"
 
