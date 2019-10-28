@@ -12,6 +12,7 @@
 ncmpcpp_directory = ~/.ncmpcpp
 lyrics_directory  = ~/.ncmpcpp/lyrics
 default_place_to_search_in = "database"
+mpd_music_dir = ~/Dropbox/MUSIX
 
 ## Параметры плейлиста ##
 playlist_disable_highlight_delay = 5
