@@ -46,6 +46,8 @@ alias -s txt=st
 alias "play"='mpv --hwdec'
 alias "mplayer"='mpv --hwdec'
 
+# Алиас для ncmpcpp
+alias "music"='ncmpcpp'
 # Алиасы для sudo
 alias su='sudo -E -s'
 alias please='sudo -E'
