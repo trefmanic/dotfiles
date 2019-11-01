@@ -58,3 +58,5 @@ alias figlet='figlet -d ~/.local/share/figlet/fonts'
 # Часы
 alias clock="tty-clock -s -c -C 3 -b"
 
+# gotop
+alias gotop="gotop -c zenburn"
