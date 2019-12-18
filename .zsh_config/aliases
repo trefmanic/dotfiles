@@ -43,7 +43,7 @@ alias activate='source .venv/bin/activate'
 alias -s txt=st
 
 # Алиас для mpv
-alias "play"='mpv --hwdec'
+
 alias "mplayer"='mpv --hwdec'
 
 # Алиас для ncmpcpp
@@ -56,7 +56,7 @@ alias please='sudo -E'
 alias figlet='figlet -d ~/.local/share/figlet/fonts'
 
 # Часы
-alias clock="tty-clock -s -c -C 3 -b"
+alias clock="tty-clock -s -c -C 4 -b"
 
 # gotop
 alias gotop="gotop -c zenburn"
