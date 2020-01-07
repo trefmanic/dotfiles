@@ -70,6 +70,10 @@ webencode() {
     echo "Usage: webencode <file>"
     fi
 }
+lamenc() {
+    filename=${1}
+    lame -h --abr 256 -v --silent "$filename" "${filename:r}.mp3" 
+}
 
 cloud-send() {
     if [ -n "$1" ]

@@ -92,7 +92,7 @@
       (package-install pkg))))
 
 ;; Поддержка мыши
-(xterm-mouse-mode 1)
+;;(xterm-mouse-mode 1)
 
 ;; Отключение экрана первоначальной настройки
 (setq inhibit-splash-screen t
