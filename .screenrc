@@ -8,5 +8,36 @@
 # ███████║╚██████╗██║  ██║███████╗███████╗██║ ╚████║██║  ██║╚██████╗
 # ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝
 # ----------------------------------------
-
+exit 0
+# Password file
+# Contains "password <hash>" line
+# generate <hash> with:
+# $ mkpasswd -m des -S <salt> <password>
+source ~/.screen.password
+#
+markkeys "h=^B:l=^F:$=^E"
+# Default overrides
+autodetach on
+crlf off
+deflogin off
+hardcopy_append on
+nethack on
+vbell on
+# Escape set to M-T
+escape "^Tt"
+sorendition "+b kG"
+# Terminal settings
 startup_message off
+term screen-256color
+termcapinfo xterm* ti@:te@
+# Decorations
+hardstatus off
+hardstatus alwayslastline
+# IP
+backtick 101 3600 0 curl ip.ctrl-q.ru
+# Process ID
+backtick 102 30 30 sh -c 'echo $PPID'
+# Black magic fuckery
+hardstatus string '%{= kG} [ %{G}%H %{g}][ %{R}%101`%{G} ][ %{Y}%S:%102`%{G} ][%=%{ kw}%?%-w%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+w%?%?%=%{g}][%{B} %d.%m %D %{W}%c%{g} ]'
+activity              "activity in %n (%t) [%w:%s]~"
+bell                  "bell     in %n (%t) [%w:%s]~"
