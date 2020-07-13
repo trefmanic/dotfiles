@@ -11,7 +11,7 @@
 ;; Главные настройки путей
 ;; не менять!
 
-(setenv "PATH" (concat "/usr/local/bin:/opt/local/bin:/usr/bin:/bin:/home/abedra/.cabal/bin" (getenv "PATH")))
+(setenv "PATH" (concat "/usr/local/bin:/opt/local/bin:/usr/bin:/bin" (getenv "PATH")))
 (require 'cl)
 
 ;; Настройки локали
