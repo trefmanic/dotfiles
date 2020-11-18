@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#TODO: How to make this portable?
+
+/home/trefmanic/.local/bin/highlight-pointer -c '#FCE94F' -o 0 -r 33 &
+sleep 0.2
+
+/home/trefmanic/.local/bin/highlight-pointer -c '#FFD7AF' -o 0 -r 44 &
+sleep 0.2
+
+/home/trefmanic/.local/bin/highlight-pointer -c '#D78787' -o 0 -r 66 &
+sleep 0.2
+
+killall highlight-pointer
+exit 0
