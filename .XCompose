@@ -7,3 +7,5 @@ include "%L"
 <Multi_key> <Cyrillic_ze> <equal>	: "₽"   U20bd # ROUBLE SIGN
 <Multi_key> <equal> <Cyrillic_ZE>	: "₽"   U20bd # ROUBLE SIGN
 <Multi_key> <equal> <Cyrillic_ze>	: "₽"   U20bd # ROUBLE SIGN
+<Multi_key> <p> <i> 			: "π"   U03C0 # GREEK SMALL LETTER PI
+<Multi_key> <Cyrillic_ze> <Cyrillic_sha>: "π"   U03C0 # GREEK SMALL LETTER PI
