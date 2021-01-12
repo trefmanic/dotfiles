@@ -1,0 +1,82 @@
+# ----------------------------------------
+# 
+# ███╗   ██╗ ██████╗███████╗██████╗  ██████╗ ████████╗
+# ████╗  ██║██╔════╝██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝
+# ██╔██╗ ██║██║     ███████╗██████╔╝██║   ██║   ██║   
+# ██║╚██╗██║██║     ╚════██║██╔═══╝ ██║   ██║   ██║   
+# ██║ ╚████║╚██████╗███████║██║     ╚██████╔╝   ██║   
+# ╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝      ╚═════╝    ╚═╝   
+# ----------------------------------------
+# Перезагрузка конфига командой :reload
+
+use_nerdfont = false
+
+# Отключаем настройки горячих клавиш
+# по умолчанию
+default_keybindings = false
+
+# Уведомления пока работают коряво...
+notify = false
+
+# Не показывать альбомы
+album_column = false
+
+# Своя настройка клавиш
+# команды можно использовать напрямую,
+# например :next
+[keybindings]
+"+" = "volup 1"
+"-" = "voldown 1"
+"<" = "previous"
+">" = "next"
+"?" = "help"
+"Ins" = "focus queue"
+"Shift+s" = "focus search"
+"Home" = "focus library"
+"Backspace" = "back"
+"Ctrl+n" = "move down 1"
+"Down" = "move down 1"
+"Ctrl+p" = "move up 1"
+"Up" = "move up 1"
+"PageDown" = "move down 10"
+"PageUp" = "move up 10"
+"Ctrl+f" = "move right 1"
+"Right" = "move right 1"
+"Ctrl+b" = "move left 1"
+"Left" = "move left 1"
+"Enter" = "play"
+"Space" = "queue"
+"p" = "playpause"
+"o" = "open current"
+"s" = "stop"
+"d" = "delete"
+"u" = "update"
+"q" = "quit"
+"z" = "shuffle"
+"b" = "seek -5000"
+"f" = "seek +5000"
+"c" = "clear"
+[theme]
+# Приведённые к настройкам zenburn
+# Основные настройки цвета
+background = "#444444"
+primary = "#C6C6B8"
+secondary = "#C6C6B8"
+title = "#E6C29E"
+# Воспроизводимая композиция 
+playing = "#1C1C1C"
+playing_selected = "#1C1C1C"
+playing_bg = "#E6C29E"
+# Курсор
+highlight = "#1C1C1C"
+highlight_bg = "#7F9F7F"
+# Сообщение об ошибке
+error = "#C27A7A"
+error_bg = "#D7AFAF"
+# Строка состояния
+statusbar = "#06989A"
+statusbar_progress = "#06989A"
+statusbar_bg = "#444444"
+# Командная строка
+cmdline = "#7A9E9E"
+cmdline_bg = "#444444"
