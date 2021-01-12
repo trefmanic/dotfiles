@@ -62,6 +62,7 @@ album_column = false
 background = "#444444"
 primary = "#C6C6B8"
 secondary = "#C6C6B8"
+tertiary = "#C6C6B8"
 title = "#E6C29E"
 # Воспроизводимая композиция 
 playing = "#1C1C1C"
@@ -75,8 +76,10 @@ error = "#C27A7A"
 error_bg = "#D7AFAF"
 # Строка состояния
 statusbar = "#06989A"
-statusbar_progress = "#06989A"
 statusbar_bg = "#444444"
+# Индикатор воспроизведения
+statusbar_progress = "#06989A"
+statusbar_progress_bg = "#1C1C1C"
 # Командная строка
 cmdline = "#7A9E9E"
 cmdline_bg = "#444444"
