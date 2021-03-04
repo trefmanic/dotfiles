@@ -57,6 +57,9 @@ alias figlet='figlet -d ~/.local/share/figlet/fonts'
 
 # Часы
 alias clock="tty-clock -s -c -C 4 -b"
-
+# Секундомер/таймер
+alias termdown="termdown -a -f clb8x10"
 # gotop
 alias gotop="gotop -c zenburn"
+# Сортировать по IP-адресам
+alias ipsort="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
