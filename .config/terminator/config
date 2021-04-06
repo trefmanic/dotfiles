@@ -6,6 +6,7 @@
   title_font = Terminess Powerline 11
   title_use_system_font = False
 [keybindings]
+  next_profile = <Primary>slash
 [layouts]
   [[default]]
     [[[child1]]]
@@ -19,14 +20,12 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#3f3f3f"
     background_darkness = 0.9
-    background_type = transparent
     cursor_color = "#aaaaaa"
     font = Terminess Powerline 11
-    foreground_color = "#dcdccc"
+    foreground_color = "#ffffff"
     icon_bell = False
-    palette = "#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87:#3f3f3f:#d78787:#7f9f7f:#ffd7af:#8cd0d3:#d7afaf:#06989a:#afaf87"
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     scrollback_lines = 5000
     scrollbar_position = hidden
     show_titlebar = False
