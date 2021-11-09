@@ -34,7 +34,7 @@ fi
 export DEBEMAIL=trefmanic@gmail.com
 export MANPAGER="sh -c 'col -b | bat -l man -p'"
 ## Центрирование вывода на полном экране
-export LESSOPEN="|- lesspage %s"
+# export LESSOPEN="|- lesspage %s"
 ## Должно соответствовать параметру WIDTH
 ## заданному в .local/bin/lesspage
 export MANWIDTH="100"
