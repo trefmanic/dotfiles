@@ -26,7 +26,6 @@ alias 'pyrepl'="echo '' | fzf --print-query --preview 'python3 -c {q}'"
 
 # Зачем nano, если есть emacs?
 alias "nano"='emacs'
-alias "cat"='bat'
 
 # Погода в терминале
 CITY='Губкинский'
@@ -64,4 +63,4 @@ alias gotop="gotop -c zenburn"
 # Сортировать по IP-адресам
 alias ipsort="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 # Алиас для синтеза речи (echo "Тест" | say)
-alias say="RHVoice-client -s Elena+CLB | aplay"
+alias say="RHVoice-client -s Elena+CLB | aplay -q"
