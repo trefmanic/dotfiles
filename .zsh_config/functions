@@ -227,16 +227,18 @@ top10mem() {
 }
 
 haste(){
+      # If called without parameters,
+      # reads data from the input
+      # End with double Ctrl-D
     if [ -n "$HASTE_URL" ]; then
-
-        URL=$HASTE_URL
-        result=$(curl -sf --data-binary @${1:--} https://$URL/documents) || {
+	
+        result=$(curl -sf --data-binary @${1:--} https://$HASTE_URL/documents) || {
             echo "ERROR: failed to post document" >&2
         }
 
         key=$(jq -r .key <<< $result)
 
-        echo "https://$URL/${key}"
+        echo "https://$HASTE_URL/${key}"
     else
         echo "haste(): no URL provided"
     fi
