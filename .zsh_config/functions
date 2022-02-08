@@ -243,3 +243,14 @@ haste(){
         echo "haste(): no URL provided"
     fi
 }
+
+# Чайный таймер. Работает с termdown и RHVoice
+tea() {
+    if [ -n "$1" ]; then
+	termdown -a -f clb8x10 "$1" &&\
+	    notify-send --urgency=normal -i "weather-overcast" "Ваш чай готов"&&\
+	    echo "Ваш чай готОв" | RHVoice-client -s Elena+CLB | aplay -q
+    else
+	echo "Usage: tea <time>.\nExamples: tea 10s, tea 2m, tea 1y (extra long steeping)"
+    fi
+}
