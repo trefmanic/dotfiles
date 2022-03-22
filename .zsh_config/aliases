@@ -64,3 +64,5 @@ alias gotop="gotop -c zenburn"
 alias ipsort="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 # Алиас для синтеза речи (echo "Тест" | say)
 alias say="RHVoice-client -s Elena+CLB | aplay -q"
+# Замена youtube-dl на yt-dlp для совместимости
+alias "youtube-dl"="yt-dlp"
