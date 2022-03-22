@@ -1,23 +1,16 @@
 {
-	"Fg": 4,
-	"Bg": -1,
-
-	"BorderLabel": 5,
-	"BorderLine":  4,
-
-	"CPULines": [1, 3, 5, 7],
-
-        "BattLines": [2, 3, 1],
-
-	"MainMem": 2,
-	"SwapMem": 3,
-
-	"ProcCursor": 2,
-
-	"Sparkline": 3,
-
-	"DiskBar": 2,
-
-	"TempLow":  2,
-	"TempHigh": 1
+    "Fg": 4,
+    "Bg": -1,
+    "BorderLabel": 5,
+    "BorderLine":  4,
+    "CPULines": [1, 3, 5, 7],
+    "BattLines": [2, 3, 1],
+    "MemLines": [2, 3, 1],
+    
+    
+    "ProcCursor": 2,
+    "Sparkline": 3,
+    "DiskBar": 2,
+    "TempLow":  2,
+    "TempHigh": 1
 }
