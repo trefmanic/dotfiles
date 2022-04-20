@@ -66,3 +66,6 @@ alias ipsort="sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"
 alias say="RHVoice-client -s Elena+CLB | aplay -q"
 # Замена youtube-dl на yt-dlp для совместимости
 alias "youtube-dl"="yt-dlp"
+# Алиасы для wireguard
+alias "wgup"="wg-quick up wg0"
+alias "wgdown"="wg-quick down wg0"
