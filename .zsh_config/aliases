@@ -67,3 +67,8 @@ alias say="RHVoice-client -s Elena+CLB | aplay -q"
 # Замена youtube-dl на yt-dlp для совместимости
 alias "youtube-dl"="yt-dlp"
 alias "xshare"="xclip -o | qrencode -t utf8"
+=======
+# Алиасы для wireguard
+alias "wgup"="wg-quick up wg0"
+alias "wgdown"="wg-quick down wg0"
+
