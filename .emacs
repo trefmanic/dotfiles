@@ -64,7 +64,6 @@
 ;; Пакеты пользователя
 (defvar trefmanic/packages '(ac-slime
                           auto-complete
-                          autopair
                           haml-mode
                           markdown-mode
 			  poly-markdown
@@ -323,10 +322,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-export-backends (quote (ascii html icalendar man md odt)))
+ '(org-export-backends '(ascii html icalendar man md odt))
  '(package-selected-packages
-   (quote
-    (ox-jekyll-md yaml-mode rust-mode 2048-game zenburn-theme rvm php-mode poly-R poly-markdown markdown-mode haml-mode autopair ac-slime haskell-mode))))
+   '(ox-jekyll-md yaml-mode rust-mode 2048-game zenburn-theme rvm php-mode poly-R poly-markdown markdown-mode haml-mode autopair ac-slime haskell-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
