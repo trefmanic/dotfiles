@@ -70,4 +70,5 @@ alias "xshare"="xclip -o | qrencode -t utf8"
 # Алиасы для wireguard
 alias "wgup"="wg-quick up wg0"
 alias "wgdown"="wg-quick down wg0"
+alias "uphugo"="hugo && rsync --progress -rltuzv -e 'ssh -p 38283' ./public/* trefmanic@trefmanic.me:/home/trefmanic/trefmanic.me/"
 
