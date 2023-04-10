@@ -1,0 +1,23 @@
+{
+  "ui" : {
+    "global" : {
+      "ui-type" : "default",
+      "show-indicator" : false
+    }
+  },
+  "data-sink" : {
+    "global" : {
+      "disabled-plugins" : [
+        "SynapsePastebinPlugin"
+      ]
+    }
+  },
+   "plugins" : {
+   "opensearch" : {
+     "use_internal" : false,
+     "search_engines" : [
+       "~/.config/synapse/google-russian.xml"
+     ]
+   }
+ }
+}

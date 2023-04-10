@@ -1,0 +1,30 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Google (Русский)</os:ShortName>
+<os:Description>Поискать в Google</os:Description>
+<os:InputEncoding>UTF-8</os:InputEncoding>
+<os:Image width="16" height="16">data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA////MP39/Zb9/f3Y/f39+f39/fn9/f3X/f39lP7+/i4AAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAD+/v4J/f39mf//////////////////////////////////////
+/////f39lf///wgAAAAAAAAAAAAAAAD+/v4J/f39wf/////6/fn/tNmn/3a6Xf9Yqzr/WKo6/3K4
+Wf+s1Z3/+Pv2///////9/f2/////CAAAAAAAAAAA/f39mf/////s9en/cbdY/1OoNP9TqDT/U6g0
+/1OoNP9TqDT/U6g0/46vWP/+8Oj///////39/ZUAAAAA////MP/////6/Pn/cbdX/1OoNP9Yqjr/
+otCR/9TpzP/W6s7/qtSb/5mjSv/whkH/9p1n///+/v///////v7+Lv39/Zj/////idbN/0uqSP9W
+qjj/1erO///////////////////////95tj/9IdG//SFQv/82MP///////39/ZT9/f3a/////yzE
+8f8RvO3/jdGw//////////////////////////////////iugv/0hUL/+LWN///////9/f3X/f39
++v////8Kvfv/Bbz7/7Xr/v/////////////////0hUL/9IVC//SFQv/0hUL/9IVC//emdf//////
+/f39+f39/fr/////C777/wW8+/+27P7/////////////////9IVC//SFQv/0hUL/9IVC//SFQv/3
+qnv///////39/fn9/f3b/////zXJ/P8Ksvn/a6T2////////////////////////////////////
+///////////////////9/f3Y/f39mf////+Sz/v/N1Ls/zhG6v/Q1Pr/////////////////////
+//39/////////////////////////f39lv7+/jL/////+fn+/1Zi7f81Q+r/O0nr/5Wc9P/P0vr/
+0dT6/5ad9P9SXu3/4eP8/////////////////////zAAAAAA/f39nf/////o6v3/WGPu/zVD6v81
+Q+r/NUPq/zVD6v81Q+r/NUPq/2x28P////////////39/ZgAAAAAAAAAAP///wr9/f3D//////n5
+/v+lrPb/XWnu/zxK6/86R+r/Wmbu/6Kp9f/5+f7///////39/cH+/v4JAAAAAAAAAAAAAAAA////
+Cv39/Z3///////////////////////////////////////////39/Zn+/v4JAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA/v7+Mv39/Zn9/f3b/f39+v39/fr9/f3a/f39mP///zAAAAAAAAAAAAAAAAAA
+AAAA8A8AAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIAB
+AADAAwAA8A8AAA==</os:Image>
+<SearchForm>https://google.ru</SearchForm>
+<os:Url type="text/html" method="GET" template="https://google.ru/search?q={searchTerms}" resultDomain="google.ru">
+</os:Url><os:Url type="application/x-suggestions+json" method="GET" template="https://google.ru/search?q={searchTerms}" resultDomain="google.ru">
+</os:Url>
+</SearchPlugin>
