@@ -65,3 +65,4 @@ bindkey '^E^X' edit-command-line
 
 ## Устанавливаем заголовок окна Terminator
 title $USER@$HOST
+
