@@ -1,3 +1,3 @@
-OPTIONS=catname:Mirri,number_pad=1,!autopickup,color,time,
+OPTIONS=catname:Mirri,number_pad=1,!autopickup,color,time
 OPTIONS=lit_corridor
-OPTIONS=tile_file:nhmodern48.bmp,tile_width=48,tile_height=48
+
