@@ -29,8 +29,8 @@ alias "nano"='emacs'
 
 # Погода в терминале
 CITY='Губкинский'
-alias wth='curl "wttr.in/$CITY?Q2n&lang=ru"'
-alias wthn='curl "wttr.in/$CITY?Q0n&lang=ru"'
+alias wth='curl -s "wttr.in/$CITY?Q2n&lang=ru" | grep -v "@"'
+alias wthn='curl -s "wttr.in/$CITY?Q0n&lang=ru" | grep -v "@"'
 
 # Правка конфигов zsh
 alias "edzsh"='emacs ~/.zshrc'
