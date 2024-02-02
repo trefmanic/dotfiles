@@ -6,7 +6,6 @@ SPACESHIP_PROMPT_ORDER=(
     exec_time
     venv
     git
-    pyenv
     dir
     line_sep
     jobs
