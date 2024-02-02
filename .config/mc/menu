@@ -8,6 +8,17 @@ N       Создать пустой файл
 	  name=%{Введите имя файла}
   	  touch ./"$name"
 
+a       Дополнить нулями все файлы
+	find . -type f -exec zeropad {} \;
+
+q       Переименовать страницы по шаблону
+	vol=%{Номер тома?}
+	chapt=%{Номер главы?}
+	for file in $(find . -type f -exec basename {} \;)
+	  do
+	    volume="$vol" chapter="$chapt" rename 's/^/v\Q$ENV{volume}_c\Q$ENV{chapter}_/' $file
+	  done
+	
 + ! t t
 r       Редактировать с правами root
 	sudo sensible-editor %f
@@ -24,6 +35,15 @@ z       Сжать текущий каталог в tar.bz2
           if [ "$tar"x = x ]; then tar="$Pwd"; fi
  	 cd .. && \
  	 tar cf - "$Pwd" | pbzip2 -f9 > "$tar.tar.bz2" && \
+ 	 echo "../$tar.tar.bz2 создан."
++ t d
+Z       Сжать текущий каталог в cbz
+ 	 Pwd=`basename %d /`
+ 	 echo -n "Имя архива [$Pwd]: "
+ 	 read archive
+          if [ "$archive"x = x ]; then archive="$Pwd"; fi
+ 	 cd .. && \
+ 	 zip -r "$archive".cbz "$Pwd" && \
  	 echo "../$tar.tar.bz2 создан."
 
 + ! t t
