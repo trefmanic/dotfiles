@@ -53,8 +53,8 @@ progressbar_color = "black"
 
 ## Параметры визуализации ##
 visualizer_in_stereo = yes
-visualizer_type = "spectrum" (spectrum/wave)
-visualizer_look = "+|"
+visualizer_type = "spectrum" #(spectrum/wave)
+visualizer_look = "█|"
 visualizer_color = yellow, red, magenta, blue, cyan
 
 ## Параметры навигации ##
