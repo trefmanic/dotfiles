@@ -255,3 +255,37 @@ tea() {
 	echo "Usage: tea <time>.\nExamples: tea 10s, tea 2m, tea 1y (extra long steeping)"
     fi
 }
+
+
+zfclean() {
+    # Удаляет снапшоты zfs по регулярному выражению
+    if [ -n "$1" ]
+    then
+        # Выводим список снапшотов
+        zfs list -t snapshot -H -o name | grep "$1" | xargs -n1 echo
+        echo ""
+        echo "WARNING! Will destroy those snapshots (forever)."
+        read "reply?Proceed? (yes/no) "
+            case $reply in
+                yes)
+                    # Удаляем снапшоты по списку
+                    zfs list -t snapshot -H -o name | grep "$1" | sudo xargs -n1 zfs destroy
+                    if [[ $? != 0 ]]
+                    then
+                        echo ""
+                        echo "Failed to destroy zfs snapshots"
+                    else
+                        echo ""
+                        echo "Snapshots destroyed!"
+                    fi;;
+                no)
+                    echo "Canceled";;
+                * )
+                    # Поведение по умолчанию
+                    echo "Canceled";;
+            esac
+    else
+    # Не предоставлено регулярное выражение
+    echo "Usage: zfsclean 'grep expression'"
+    fi
+}
