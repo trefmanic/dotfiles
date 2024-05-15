@@ -219,7 +219,7 @@
   :type 'string :group 'journal)
 (defface journal '((t nil)) "Custom face to use in the journal" :group 'journal)
 
-;(defvar journal-dir "~/STORAGE/MEGA/LOG/") ; Directory containing journal files
+
 (defvar journal-date-list nil)
 (defvar journal-file)
 (defvar journal-ext)
@@ -281,7 +281,7 @@
 (defun journal-get-list nil "Loads the list of files in the journal directory, and converts it into a list of calendar DATE elements"
   (unless (file-exists-p journal-dir) (error "Journal directory %s not found" journal-dir))
   (setq journal-date-list
-  (mapcar '(lambda (journal-file)
+  (mapcar #'(lambda (journal-file)
              (let ((y (string-to-number (substring journal-file 0 4)))
                        (m (string-to-number (substring journal-file 4 6)))
                                              (d (string-to-number (substring journal-file 6 8))))
