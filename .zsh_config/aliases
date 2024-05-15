@@ -72,3 +72,5 @@ alias "wgup"="wg-quick up wg0"
 alias "wgdown"="wg-quick down wg0"
 alias "uphugo"="hugo && rsync --progress -rltuzv -e 'ssh -p 38283' ./public/* trefmanic@trefmanic.me:/home/trefmanic/trefmanic.me/"
 alias now='echo "$(date +%d-%m-%Y-%H%M%S)"'
+# Последний коммит
+alias -g "lastlog"="log --name-status HEAD^..HEAD"
