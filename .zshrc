@@ -9,6 +9,8 @@
 # ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
 # ----------------------------------------
 
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 ## Установка zplug
 ## --------------------------------
 if [[ ! -d ~/.zplug ]];then
@@ -66,3 +68,5 @@ zplug load
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+
