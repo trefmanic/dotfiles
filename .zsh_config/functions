@@ -289,3 +289,7 @@ zfclean() {
     echo "Usage: zfsclean 'grep expression'"
     fi
 }
+
+ipa () {
+ ip -4 -o a s | awk '{print $2,"\t", $4}'
+}
