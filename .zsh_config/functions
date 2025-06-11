@@ -78,7 +78,7 @@ lamenc() {
 cloud-send() {
     if [ -n "$1" ]
     then
-    curl -F "file=@"$1 https://0x0.st
+    curl -H "User-Agent: foobar/2000" -F "file=@"$1 https://0x0.st
     else
     # Не предоставлено имя файла
     echo "Usage: cloud-send <filename>"
